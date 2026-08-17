@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaiHome Realty Inc.</title>
+    <link rel="icon" href="Logo2 (Taihome Realty Inc.).png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Top Bar -->
+    <div id="bar">
+        <img id="companyTrademark" src="TaiHome Logo 20251223.jpg" alt="TaiHome Logo">
+        <h1>TaiHome Realty</h1>
+        <button id="translate-btn" class="translate-btn" title="切换到中文 / Switch to Chinese" style="background:rgb(235,208,121) !important;color:#000 !important;border:2px solid rgb(180,155,80) !important;height:42px !important;width:auto !important;padding:0 16px !important;border-radius:999px !important;font-size:14px !important;font-weight:700 !important;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;white-space:nowrap;margin-right:8px;">中文</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+    </div>
+
+
+    <div class="nav-separate"></div>
+
+
+    <!-- Navigation -->
+    <div class="navigationBar">
+        <nav>
+            <button class="nav-tab active" data-tab="home">Home</button>
+            <button class="nav-tab" data-tab="employees">Our Team</button>
+
+
+            <div class="dropdown">
+                <button class="nav-tab dropdown-trigger" data-tab="selling">
+                    Selling
+                    <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <ul class="dropdown-list">
+                    <li><a href="#" data-tab="selling" data-section="sell">Sell Your Home</a></li>
+                    <li><a href="#" data-tab="selling" data-section="eval">Home Evaluation</a></li>
+                </ul>
+            </div>
+
+
+            <button class="nav-tab" data-tab="buying">Office Listings</button>
+            <button class="nav-tab" data-tab="renting">Exclusives</button>
+            <button class="nav-tab" data-tab="joinFirm">Join Our Firm</button>
+            <button class="nav-tab" data-tab="contact">Contact Us</button>
+        </nav>
+    </div>
+
+
+    <!-- ===================== HOME PAGE ===================== -->
+    <div class="page active" id="page-home">
+        <section class="hero-section">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Toronto's Trusted Realty</p>
+                <h1 class="hero-title">Find Your Perfect <em>Home</em></h1>
+                <p class="hero-subtitle">TaiHome Realty Inc. connects buyers, sellers, and renters with experienced agents who put your goals first.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" data-tab="buying">Browse Homes</button>
+                    <button class="btn btn-ghost" data-tab="contact">Talk to an Agent</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="home-stats">
+            <div class="stat-card">
+                <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+                <p class="stat-label">Homes Sold</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+                <p class="stat-label">Years of Experience</p>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+                <p class="stat-label">Client Satisfaction</p>
+            </div>
+        </section>
+
+
+        <section class="home-services">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card" data-tab="buying">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>Buying</h3>
+                    <p>Explore our curated listings and let our agents guide you to the home you deserve.</p>
+                </div>
+                <div class="service-card" data-tab="selling">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <h3>Selling</h3>
+                    <p>Market your property with precision pricing, professional photography, and expert negotiation.</p>
+                </div>
+                <div class="service-card" data-tab="renting">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3>Renting</h3>
+                    <p>Discover quality rental homes and investment properties across the GTA.</p>
+                </div>
+                <div class="service-card" data-tab="joinFirm">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Join the Team</h3>
+                    <p>Ambitious agents are welcome. Grow your career at TaiHome Realty.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ===================== EMPLOYEES PAGE ===================== -->
+    <div class="page" id="page-employees">
+        <div class="nav-separate"></div>
+        <div class="page-header">
+            <h1 class="page-title">Our Team</h1>
+            <p class="page-subtitle">Meet the experienced professionals at TaiHome Realty</p>
+        </div>
+        <div class="employees-grid" id="employees-grid"></div>
+    </div>
+
+
+    <!-- Employee Detail View -->
+    <div class="employee-details" id="employee-details">
+        <div class="details-inner">
+            <button class="back-btn" id="back-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                Back to Team
+            </button>
+
+
+            <div class="profile-card">
+                <div class="profile-banner">
+                    <div class="profile-avatar" id="profile-avatar"></div>
+                    <div class="profile-info">
+                        <h2 class="realtor-name" id="profile-name"></h2>
+                        <p class="realtor-title" id="profile-title"></p>
+                        <p class="realtor-langs" id="profile-langs"></p>
+                    </div>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-bio" id="profile-bio"></div>
+                    <div class="profile-stats" id="profile-stats"></div>
+                    <div class="profile-contact">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-buttons">
+                            <a class="btn btn-primary" id="profile-phone" href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 14 19.79 19.79 0 0 1 1.65 5.43 2 2 0 0 1 3.62 3h3a2 2 0 0 1 2 1.72c.13.96.39 1.9.74 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 5.57 5.57l1.05-1.05a2 2 0 0 1 2.11-.45c.91.35 1.85.61 2.81.74A2 2 0 0 1 22 16.92z"/></svg>
+                                Call
+                            </a>
+                            <a class="btn btn-secondary" id="profile-email" href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================== SELLING PAGE ===================== -->
+    <div class="page" id="page-selling">
+        <div class="page-header">
+            <h1 class="page-title">Selling Your Home</h1>
+            <p class="page-subtitle">Expert guidance from listing to closing</p>
+        </div>
+
+
+        <div class="selling-tabs">
+            <button class="selling-tab active" data-section="sell">Sell Your Home</button>
+            <button class="selling-tab" data-section="eval">Home Evaluation</button>
+        </div>
+
+
+        <!-- Sell Home Section -->
+        <div class="selling-section active" id="sell-section">
+            <div class="selling-intro">
+                <h2>Why Sell With TaiHome?</h2>
+                <p>We leverage local market knowledge, professional staging, and powerful marketing to get you top dollar.</p>
+            </div>
+            <div class="selling-steps">
+                <div class="step-item">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3>Free Consultation</h3>
+                        <p>We review your goals, timeline, and the current market to build a tailored selling strategy.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3>Prepare &amp; Stage</h3>
+                        <p>Our team advises on improvements and professional staging to maximize your home's appeal.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3>List &amp; Market</h3>
+                        <p>MLS listing, social media campaigns, professional photography, and targeted outreach.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">04</div>
+                    <div class="step-content">
+                        <h3>Negotiate &amp; Close</h3>
+                        <p>We negotiate on your behalf and handle all paperwork through to a smooth closing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-box">
+                <h3>Ready to list your home?</h3>
+                <p>Contact us today for a no-obligation conversation.</p>
+                <button class="btn btn-primary" data-tab="contact">Contact Us</button>
+            </div>
+        </div>
+
+
+        <!-- Home Evaluation Section -->
+        <div class="selling-section" id="eval-section">
+            <div class="selling-intro">
+                <h2>Free Home Evaluation</h2>
+                <p>Find out what your home is worth in today's market — no obligation, no pressure.</p>
+            </div>
+            <form class="eval-form" id="eval-form">
+                <div class="form-group">
+                    <label for="eval-address">Property Address</label>
+                    <input type="text" id="eval-address" placeholder="123 Main Street, Toronto, ON" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eval-type">Property Type</label>
+                        <select id="eval-type">
+                            <option value="">Select type</option>
+                            <option>Detached</option>
+                            <option>Semi-Detached</option>
+                            <option>Townhouse</option>
+                            <option>Condo</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eval-beds">Bedrooms</label>
+                        <select id="eval-beds">
+                            <option value="">Select</option>
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eval-name">Your Name</label>
+                        <input type="text" id="eval-name" placeholder="Jane Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eval-phone">Phone Number</label>
+                        <input type="tel" id="eval-phone" placeholder="(647) 701 5158">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eval-email">Email Address</label>
+                    <input type="email" id="eval-email" placeholder="jane@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="eval-notes">Additional Notes</label>
+                    <textarea id="eval-notes" rows="3" placeholder="Any recent renovations, unique features, or timeline..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Request Evaluation</button>
+            </form>
+            <div class="form-success hidden" id="eval-success">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <h3>Request Received!</h3>
+                <p>One of our agents will reach out within 24 hours with your home evaluation.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================== BUYING PAGE ===================== -->
+    <div class="page" id="page-buying">
+        <div class="page-header">
+            <h1 class="page-title">Office Listings</h1>
+            <p class="page-subtitle">Explore available properties in the Greater Toronto Area</p>
+        </div>
+
+
+        <div class="listings-filters">
+            <input type="text" id="search-listings" placeholder="Search by address or neighbourhood…" class="search-input">
+            <select id="filter-type" class="filter-select">
+                <option value="">All Types</option>
+                <option>Detached</option>
+                <option>Semi-Detached</option>
+                <option>Townhouse</option>
+                <option>Condo</option>
+            </select>
+            <select id="filter-price" class="filter-select">
+                <option value="">Any Price</option>
+                <option value="500">Under $500K</option>
+                <option value="800">Under $800K</option>
+                <option value="1200">Under $1.2M</option>
+                <option value="2000">Under $2M</option>
+            </select>
+        </div>
+
+        <div class="listings-grid" id="listings-grid"></div>
+        <div class="empty-listings hidden" id="empty-listings">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <p>No listings match your search. Try adjusting filters.</p>
+        </div>
+    </div>
+
+
+    <!-- ===================== RENTING PAGE ===================== -->
+    <div class="page" id="page-renting">
+        <div class="page-header">
+            <h1 class="page-title">Exclusives</h1>
+            <!-- <p class="page-subtitle">Quality rentals across the Greater Toronto Area</p> -->
+            <p class="page-subtitle">Find exclusive listings across the Greater Toronto Area</p>
+        </div>
+        <div class="listings-grid" id="rentals-grid"></div>
+    </div>
+
+
+    <!-- ===================== JOIN PAGE ===================== -->
+    <div class="page" id="page-joinFirm">
+        <div class="page-header">
+            <h1 class="page-title">Apply Now</h1>
+            <p class="page-subtitle">Welcome Join the TaiHome Realty family and grow your real estate career</p>
+        </div>
+
+
+        <div class="join-intro">
+            <div class="join-text">
+                <h2>TaiHome Realty Policies:</h2>
+                <ul class="join-benefits">
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Low Cost, Remote Work;</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No Desk Fee (No Office Yet);</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lease 10%;</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Selling &amp; Buying $500;</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No Deal No Charges;</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No Contract;</li>
+                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Lowest Charges In GTA;</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="application-section">
+            <h2 id="application-intro">Submit Your Application</h2>
+            <p class="please-read">Please read carefully — we are currently accepting applications for licensed real estate agents in Ontario. All applicants must hold a valid RECO registration.</p>
+            <form class="application-form" id="application-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-first">First Name</label>
+                        <input type="text" id="app-first" placeholder="Jane" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-last">Last Name</label>
+                        <input type="text" id="app-last" placeholder="Smith" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-email">Email</label>
+                        <input type="email" id="app-email" placeholder="jane@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-phone">Phone</label>
+                        <input type="tel" id="app-phone" placeholder="(647) 701 5158">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-reco">RECO Registration #</label>
+                        <input type="text" id="app-reco" placeholder="e.g. 4567890" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-exp">Years of Experience</label>
+                        <select id="app-exp">
+                            <option value="">Select</option>
+                            <option>Less than 1 year</option>
+                            <option>1–3 years</option>
+                            <option>3–7 years</option>
+                            <option>7+ years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="app-langs">Languages Spoken</label>
+                    <input type="text" id="app-langs" placeholder="e.g. English, Mandarin, Cantonese">
+                </div>
+                <div class="form-group">
+                    <label for="app-why">Why do you want to join TaiHome?</label>
+                    <textarea id="app-why" rows="4" placeholder="Tell us about yourself and your goals…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+            <div class="form-success hidden" id="app-success">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for your interest. We'll review your application and be in touch within 3–5 business days.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================== CONTACT PAGE ===================== -->
+    <div class="page" id="page-contact">
+        <div class="page-header">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">We're here to help — reach out any time</p>
+        </div>
+
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <div class="contact-detail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 14 19.79 19.79 0 0 1 1.65 5.43 2 2 0 0 1 3.62 3h3a2 2 0 0 1 2 1.72c.13.96.39 1.9.74 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 5.57 5.57l1.05-1.05a2 2 0 0 1 2.11-.45c.91.35 1.85.61 2.81.74A2 2 0 0 1 22 16.92z"/></svg>
+                    <div><h4>Phone</h4><a href="tel:+16477015158">(647) 701 5158</a></div>
+                </div>
+                <div class="contact-detail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div><h4>Email</h4><a href="mailto:adamwei2020@gmail.com">adamwei2020@gmail.com</a></div>
+                </div>
+                <div class="contact-detail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><h4>Office</h4><p>51 Foxwarren Dr<br>Toronto, ON M2K 1L1</p></div>
+                </div>
+                <div class="contact-detail">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div><h4>Office Hours</h4><p>Mon–Fri: 9:00 AM – 6:00 PM<br>Sat: 10:00 AM – 4:00 PM</p></div>
+                </div>
+            </div>
+
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="c-name">Name</label>
+                        <input type="text" id="c-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-phone">Phone</label>
+                        <input type="tel" id="c-phone" placeholder="(416) 555-0000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="c-email">Email</label>
+                    <input type="email" id="c-email" placeholder="you@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-subject">Subject</label>
+                    <select id="c-subject">
+                        <option value="">How can we help?</option>
+                        <option>Buying a Home</option>
+                        <option>Selling a Home</option>
+                        <option>Renting</option>
+                        <option>Home Evaluation</option>
+                        <option>Joining the Team</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="c-message">Message</label>
+                    <textarea id="c-message" rows="4" placeholder="Tell us more about how we can help…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div class="form-success hidden" id="contact-success">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <h3>Message Sent!</h3>
+                <p>Thanks for reaching out. An agent will contact you within one business day.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+    <div class="footer-top">
+        <span>TaiHome Realty Inc., Brokerage*</span>
+        <span class="footer-divider">|</span>
+        <span>Independently Owned &amp; Operated</span>
+        <span class="footer-divider">|</span>
+        <span class="footer-tagline-span">Real Estate Services across the Greater Toronto Area</span>
+        <span class="footer-divider">|</span>
+        <span>&copy; <span id="footer-year"></span> TaiHome Realty Inc. &mdash; <span class="footer-rights-span">All Rights Reserved. Independently Developed.</span></span>
+    </div>
+    <!-- <div class="footer-middle">
+        <a href="#" class="footer-link">Terms of Service</a>
+        <span class="footer-divider">|</span>
+        <a href="#" class="footer-link">Privacy Policy</a>
+    </div> -->
+    <div class="footer-logos">
+        <div class="footer-logo-item">
+            <img src="REALTOR_R.png" 
+                alt="REALTOR® Logo" 
+                width="48" height="44" 
+                loading="lazy"
+                style="flex-shrink:0; object-fit:contain;">
+            <p>The trademarks REALTOR®, REALTORS®, and the REALTOR® logo are controlled by The Canadian Real Estate Association (CREA) and identify real estate professionals who are members of CREA.</p>
+        </div>
+        <div class="footer-logo-item">
+            <img src="MLS.png" 
+                alt="MLS® Logo" 
+                width="48" height="44" 
+                loading="lazy"
+                style="flex-shrink:0; object-fit:contain;">
+            <p>The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by The Canadian Real Estate Association (CREA) and identify the quality of services provided by real estate professionals who are members of CREA.</p>
+        </div>
+    </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
