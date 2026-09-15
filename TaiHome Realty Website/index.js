@@ -333,7 +333,8 @@ function showPage(tabId) {
 
     document.querySelectorAll(`.nav-tab[data-tab="${tabId}"]`).forEach(b => b.classList.add('active'));
 
-    document.getElementById('employee-details').classList.remove('active');
+    const empDetails = document.getElementById('employee-details');
+    if (empDetails) empDetails.classList.remove('active');
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -355,6 +356,8 @@ if (dropdown) {
 
     dropdown.querySelectorAll('.dropdown-list a').forEach(link => {
     link.addEventListener('click', e => {
+        // Multi-page nav uses plain links (no data-tab) — let them navigate normally.
+        if (!link.dataset.tab) return;
         e.preventDefault();
         showPage(link.dataset.tab);
         const section = link.dataset.section;
@@ -394,7 +397,7 @@ const employees = [
         email: 'adamwei2020@gmail.com',
         deals: 0,
         years: 0,
-        img: 'agent-adam-wei.jpg',
+        img: 'employees/agent-adam-wei.jpg',
         url: 'https://www.realtor.ca/agent/2100055/adam-wei-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -409,7 +412,7 @@ const employees = [
         email: 'pusubi2008@gmail.com',
         deals: 0,
         years: 0,
-        img: 'agent-linda-pu.jpg',
+        img: 'employees/agent-linda-pu.jpg',
         url: 'https://www.realtor.ca/agent/1983684/linda-pu-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -424,7 +427,7 @@ const employees = [
         email: 'n/a',
         deals: 0,
         years: 0,
-        img: 'agent-bryan-lei.jpg',
+        img: 'employees/agent-bryan-lei.jpg',
         url: 'https://www.realtor.ca/agent/2084905/bryan-lei-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -439,7 +442,7 @@ const employees = [
         email: 'n/a',
         deals: 0,
         years: 0,
-        img: 'agent-david-cheng.jpg',
+        img: 'employees/agent-david-cheng.jpg',
         url: 'https://www.realtor.ca/agent/2100974/david-cheng-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -454,7 +457,7 @@ const employees = [
         email: 'n/a',
         deals: 0,
         years: 0,
-        img: 'agent-mahmood-kalantary.jpg',
+        img: 'employees/agent-mahmood-kalantary.jpg',
         url: 'https://www.realtor.ca/agent/2099047/mahmood-kalantary-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -469,7 +472,7 @@ const employees = [
         email: 'n/a',
         deals: 0,
         years: 0,
-        img: 'agent-song-hai.jpg',
+        img: 'employees/agent-song-hai.jpg',
         url: 'https://www.realtor.ca/agent/1988228/song-hai-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
     {
@@ -484,13 +487,16 @@ const employees = [
         email: 'n/a',
         deals: 0,
         years: 0,
-        img: 'Chandler-Ren.jpg',
+        img: 'employees/Chandler-Ren.jpg',
         url: 'https://www.realtor.ca/a/h_sn/jb',
     },
 ];
 
 
 // ── Render Employees ──────────────────────────────────────────
+// Split pages under pages/ set data-asset-base="../" on <body> so
+// relative image paths resolve correctly. Root page defaults to ''.
+var ASSET_BASE = (document.body && document.body.dataset && document.body.dataset.assetBase) || '';
 function renderEmployeesLang(lang) {
     const grid = document.getElementById('employees-grid');
     if (!grid) return;
@@ -498,7 +504,7 @@ function renderEmployeesLang(lang) {
     grid.innerHTML = employees.map(emp => `
         <a class="employee-card" href="${emp.url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; display:block; cursor:pointer;">
         <div class="emp-avatar-wrap">
-            <img class="emp-photo" src="${emp.img}" alt="${emp.name}" width="96" height="96" loading="lazy"
+            <img class="emp-photo" src="${ASSET_BASE}${emp.img}" alt="${emp.name}" width="96" height="96" loading="lazy"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="emp-avatar" style="background:${emp.color}22;color:${emp.color};display:none">${emp.initials}</div>
         </div>
@@ -521,7 +527,7 @@ function openEmployeeDetail(id) {
     avatarEl.style.cssText = `background:${emp.color}22;color:${emp.color}`;
     // Show photo in profile if available
     avatarEl.innerHTML = `
-        <img src="${emp.img}" alt="${emp.name}"
+        <img src="${ASSET_BASE}${emp.img}" alt="${emp.name}"
         style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:9999px;"
         onerror="this.style.display='none';this.parentElement.textContent='${emp.initials}';"
         />
@@ -552,7 +558,7 @@ function openEmployeeDetail(id) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.getElementById('back-btn').addEventListener('click', () => {
+document.getElementById('back-btn')?.addEventListener('click', () => {
     document.getElementById('employee-details').classList.remove('active');
     document.getElementById('page-employees').classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -560,21 +566,21 @@ document.getElementById('back-btn').addEventListener('click', () => {
 
 // ── Listings Data ─────────────────────────────────────────────
 const listings = [
-    { id: 1, address: '3573 Colonial Drive, Mississauga (Erin Mills)', type: 'Detached', price: 1_299_000, beds: 6, baths: 7, sqft: "2500-3000", tag: 'New', url: 'https://www.realmaster.cn/s/dPkOJJbKiD?lang=en', img: '3573ColonialDrive.jpg' },
-    { id: 2, address: '38 Foxwarren Drive, Toronto (Bayview Village)', type: 'Detached', price: 3_198_000, beds: 7, baths: 7, sqft: "3500-5000", tag: 'New', url: 'https://www.realmaster.cn/s/1MejwwjRsz?lang=en', img: '38FoxwarrenDrive.jpg' },
-    { id: 3, address: '6 Iron Street, Welland (Lincoln/Crowland)', type: 'Detached', price: 379_900, beds: 3, baths: 1, sqft: "700-1100", tag: 'For Sale', url: 'https://www.realmaster.cn/s/NX15qjS5EN?lang=en', img: 'iron.jpg' },
-    { id: 4, address: '3880 Midland Avenue, Toronto (Milliken), Unit 05', type: 'Retail', price: 500_000, sqft: "1080", tag: 'For Sale', url: 'https://www.realmaster.cn/s/gbisFIEH07?lang=en', img: '3880midlandave.jpg' },
-    { id: 5, address: '72 Bowerbank Drive, Toronto (Newtonbrook East)', type: 'Detached', price: 1_388_000, beds: 5, baths: 3, sqft: "1500-2000", tag: 'For Sale', url: 'https://www.realmaster.cn/s/2kfirwK3na?lang=en', img: 'bowerbank.jpg' },
-    { id: 6, address: '43 Karen Street, Vaughan (Crestwood-Springfarm-Yorkhill)', type: 'Semi-Detached', price: 1_098_000, beds: 3, baths: 3, sqft: "1500-2000", tag: 'For Sale', url: 'https://www.realmaster.cn/s/bcgyqnEOsw?lang=en', img: '43Karen.jpg' },
-    { id: 7, address: '12 Vonda Avenue, Toronto (Willowdale East)', type: 'Detached', price: 1_599_000, beds: 6, baths: 4, sqft: "2000-2500", tag: 'For Sale', url: 'https://www.realmaster.cn/s/aphH5xS5Pz?lang=en', img: '12vondaave.jpg' },
-    { id: 8, address: '462 Ellerslie Avenue, Toronto (Willowdale West)', type: 'Detached', price: 1_249_000, beds: 3, baths: 1, sqft: "700-1100", tag: 'For Sale', url: 'https://www.realmaster.cn/s/NXojbg7CAA?lang=en', img: '462ellerslieave.jpg' },
-    { id: 9, address: '6 Vonda Avenue, Toronto (Willowdale East)', type: 'Detached', price: 1_498_000, beds: 5, baths: 3, sqft: "2000-2500", tag: 'Delisted', url: 'https://www.realmaster.com/s/ks3G1xgWZw?lang=en', img: 'vonda.jpg' },
-    { id: 10, address: '639 Royal York Road, Toronto (Stonegate-Queensway)', type: 'Detached', price: 1_340_000, beds: 4, baths: 3, sqft: "1500-2000", tag: 'Sold', url: 'https://www.realmaster.com/s/sxrQ4r6Kmk?lang=en', img: '639Royal.jpg' },
-    { id: 11, address: '10 Centurion Court, Toronto (Bayview Woods-Steeles)', type: 'Detached', price: 1_400_000, beds: 6, baths: 4, sqft: "2000-2500", tag: 'Sold', url: 'https://www.realmaster.cn/s/nbJIAIxhOh?lang=en', img: '10Centurion.jpg' },
-    { id: 12, address: '400 Alex Gardner Circle, Aurora (Aurora Village), Unit 74', type: 'Townhouse', price: 630_000, beds: 2, baths: 3, sqft: "1200-1399", tag: 'Sold', url: 'https://www.realmaster.cn/s/MXu7A1nDVn?lang=en', img: '400Alex.jpg' },
-    { id: 13, address: '8 Eaton Park Lane, Toronto (L\'Amoreaux), Unit 3', type: 'Townhouse', price: 940_000, beds: 5, baths: 4, sqft: "1500-2000", tag: 'Sold', url: 'https://www.realmaster.cn/s/eBoKtPq4lg?lang=en', img: '8Eaton.jpg' },
-    { id: 14, address: '28 Hollywood Avenue Toronto (Willowdale East), Unit 809', type: 'Condo', price: 798_000, beds: 3, baths: 2, sqft: "1000-1199", tag: 'Delisted', url: 'https://www.realmaster.cn/s/oqXFtQGS4C?lang=en', img: 'holywood.jpg' },
-    { id: 15, address: '159 Wellesley Street E, Toronto (Cabbagetown-South St. James Town), Unit 1509', type: 'Condo', price: 598_800, beds: 2, baths: 1, sqft: "500-599", tag: 'Delisted', url: 'https://www.realmaster.cn/s/mB1d3WAcIf?lang=en', img: '159Wellesley.jpg' },
+    { id: 1, address: '3573 Colonial Drive, Mississauga (Erin Mills)', type: 'Detached', price: 1_299_000, beds: 6, baths: 7, sqft: "2500-3000", tag: 'New', url: 'https://www.realmaster.cn/s/dPkOJJbKiD?lang=en', img: 'homes/3573ColonialDrive.jpg' },
+    { id: 2, address: '38 Foxwarren Drive, Toronto (Bayview Village)', type: 'Detached', price: 3_198_000, beds: 7, baths: 7, sqft: "3500-5000", tag: 'New', url: 'https://www.realmaster.cn/s/1MejwwjRsz?lang=en', img: 'homes/38FoxwarrenDrive.jpg' },
+    { id: 3, address: '6 Iron Street, Welland (Lincoln/Crowland)', type: 'Detached', price: 379_900, beds: 3, baths: 1, sqft: "700-1100", tag: 'For Sale', url: 'https://www.realmaster.cn/s/NX15qjS5EN?lang=en', img: 'homes/iron.jpg' },
+    { id: 4, address: '3880 Midland Avenue, Toronto (Milliken), Unit 05', type: 'Retail', price: 500_000, sqft: "1080", tag: 'For Sale', url: 'https://www.realmaster.cn/s/gbisFIEH07?lang=en', img: 'homes/3880midlandave.jpg' },
+    { id: 5, address: '72 Bowerbank Drive, Toronto (Newtonbrook East)', type: 'Detached', price: 1_388_000, beds: 5, baths: 3, sqft: "1500-2000", tag: 'For Sale', url: 'https://www.realmaster.cn/s/2kfirwK3na?lang=en', img: 'homes/bowerbank.jpg' },
+    { id: 6, address: '43 Karen Street, Vaughan (Crestwood-Springfarm-Yorkhill)', type: 'Semi-Detached', price: 1_098_000, beds: 3, baths: 3, sqft: "1500-2000", tag: 'For Sale', url: 'https://www.realmaster.cn/s/bcgyqnEOsw?lang=en', img: 'homes/43Karen.jpg' },
+    { id: 7, address: '12 Vonda Avenue, Toronto (Willowdale East)', type: 'Detached', price: 1_599_000, beds: 6, baths: 4, sqft: "2000-2500", tag: 'For Sale', url: 'https://www.realmaster.cn/s/aphH5xS5Pz?lang=en', img: 'homes/12vondaave.jpg' },
+    { id: 8, address: '462 Ellerslie Avenue, Toronto (Willowdale West)', type: 'Detached', price: 1_249_000, beds: 3, baths: 1, sqft: "700-1100", tag: 'For Sale', url: 'https://www.realmaster.cn/s/NXojbg7CAA?lang=en', img: 'homes/462ellerslieave.jpg' },
+    { id: 9, address: '6 Vonda Avenue, Toronto (Willowdale East)', type: 'Detached', price: 1_498_000, beds: 5, baths: 3, sqft: "2000-2500", tag: 'Delisted', url: 'https://www.realmaster.com/s/ks3G1xgWZw?lang=en', img: 'homes/vonda.jpg' },
+    { id: 10, address: '639 Royal York Road, Toronto (Stonegate-Queensway)', type: 'Detached', price: 1_340_000, beds: 4, baths: 3, sqft: "1500-2000", tag: 'Sold', url: 'https://www.realmaster.com/s/sxrQ4r6Kmk?lang=en', img: 'homes/639Royal.jpg' },
+    { id: 11, address: '10 Centurion Court, Toronto (Bayview Woods-Steeles)', type: 'Detached', price: 1_400_000, beds: 6, baths: 4, sqft: "2000-2500", tag: 'Sold', url: 'https://www.realmaster.cn/s/nbJIAIxhOh?lang=en', img: 'homes/10Centurion.jpg' },
+    { id: 12, address: '400 Alex Gardner Circle, Aurora (Aurora Village), Unit 74', type: 'Townhouse', price: 630_000, beds: 2, baths: 3, sqft: "1200-1399", tag: 'Sold', url: 'https://www.realmaster.cn/s/MXu7A1nDVn?lang=en', img: 'homes/400Alex.jpg' },
+    { id: 13, address: '8 Eaton Park Lane, Toronto (L\'Amoreaux), Unit 3', type: 'Townhouse', price: 940_000, beds: 5, baths: 4, sqft: "1500-2000", tag: 'Sold', url: 'https://www.realmaster.cn/s/eBoKtPq4lg?lang=en', img: 'homes/8Eaton.jpg' },
+    { id: 14, address: '28 Hollywood Avenue Toronto (Willowdale East), Unit 809', type: 'Condo', price: 798_000, beds: 3, baths: 2, sqft: "1000-1199", tag: 'Delisted', url: 'https://www.realmaster.cn/s/oqXFtQGS4C?lang=en', img: 'homes/holywood.jpg' },
+    { id: 15, address: '159 Wellesley Street E, Toronto (Cabbagetown-South St. James Town), Unit 1509', type: 'Condo', price: 598_800, beds: 2, baths: 1, sqft: "500-599", tag: 'Delisted', url: 'https://www.realmaster.cn/s/mB1d3WAcIf?lang=en', img: 'homes/159Wellesley.jpg' },
     //{ id: 6, address: '19 Fernwood Blvd, Richmond Hill', type: 'Townhouse', price: 998_000, beds: 3, baths: 3, sqft: 1750, tag: 'For Sale', url: 'https://PLACEHOLDER_LISTING_6' },
 ];
 
@@ -599,7 +605,7 @@ function listingCard(l) {
             <span class="listing-tag" style="background:${colors[l.tag] || 'var(--color-primary)'}66;color:${colors[l.tag] || 'var(--color-primary)'}">${l.tag}</span>
             <img
             class="listing-photo"
-            src="${l.img}"
+            src="${ASSET_BASE}${l.img}"
             alt="${l.address}"
             width="400" height="180"
             loading="lazy"

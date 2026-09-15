@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Evaluation | TaiHome Realty Inc.</title>
+    <link rel="icon" href="../Logo2 (TaiHome Realty Inc.).png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-page="evaluation" data-asset-base="../">
+
+    <div data-include="topbar"></div>
+
+    <div class="nav-separate"></div>
+
+    <div data-include="nav"></div>
+
+    <div class="page active" id="page-selling">
+        <div class="page-header">
+            <h1 class="page-title">Selling Your Home</h1>
+            <p class="page-subtitle">Expert guidance from listing to closing</p>
+        </div>
+
+        <div class="selling-tabs">
+            <a class="selling-tab selling-tab-link" href="selling.html">Sell Your Home</a>
+            <a class="selling-tab selling-tab-link active" href="evaluation.html">Home Evaluation</a>
+        </div>
+
+        <div class="selling-section active" id="eval-section">
+            <div class="selling-intro">
+                <h2>Free Home Evaluation</h2>
+                <p>Find out what your home is worth in today's market — no obligation, no pressure.</p>
+            </div>
+            <form class="eval-form" id="eval-form">
+                <div class="form-group">
+                    <label for="eval-address">Property Address</label>
+                    <input type="text" id="eval-address" placeholder="123 Main Street, Toronto, ON" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eval-type">Property Type</label>
+                        <select id="eval-type">
+                            <option value="">Select type</option>
+                            <option>Detached</option>
+                            <option>Semi-Detached</option>
+                            <option>Townhouse</option>
+                            <option>Condo</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eval-beds">Bedrooms</label>
+                        <select id="eval-beds">
+                            <option value="">Select</option>
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eval-name">Your Name</label>
+                        <input type="text" id="eval-name" placeholder="Jane Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eval-phone">Phone Number</label>
+                        <input type="tel" id="eval-phone" placeholder="(647) 701 5158">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="eval-email">Email Address</label>
+                    <input type="email" id="eval-email" placeholder="jane@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="eval-notes">Additional Notes</label>
+                    <textarea id="eval-notes" rows="3" placeholder="Any recent renovations, unique features, or timeline..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Request Evaluation</button>
+            </form>
+            <div class="form-success hidden" id="eval-success">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <h3>Request Received!</h3>
+                <p>One of our agents will reach out within 24 hours with your home evaluation.</p>
+            </div>
+        </div>
+    </div>
+
+    <div data-include="footer"></div>
+
+    <script src="layout.js"></script>
+</body>
+</html>

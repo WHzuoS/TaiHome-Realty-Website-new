@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Listings | TaiHome Realty Inc.</title>
+    <link rel="icon" href="../Logo2 (TaiHome Realty Inc.).png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-page="listings" data-asset-base="../">
+
+    <div data-include="topbar"></div>
+
+    <div class="nav-separate"></div>
+
+    <div data-include="nav"></div>
+
+    <div class="page active" id="page-buying">
+        <div class="page-header">
+            <h1 class="page-title">Office Listings</h1>
+            <p class="page-subtitle">Explore available properties in the Greater Toronto Area</p>
+        </div>
+
+        <div class="listings-filters">
+            <input type="text" id="search-listings" placeholder="Search by address or neighbourhood…" class="search-input">
+            <select id="filter-type" class="filter-select">
+                <option value="">All Types</option>
+                <option>Detached</option>
+                <option>Semi-Detached</option>
+                <option>Townhouse</option>
+                <option>Condo</option>
+            </select>
+            <select id="filter-price" class="filter-select">
+                <option value="">Any Price</option>
+                <option value="500">Under $500K</option>
+                <option value="800">Under $800K</option>
+                <option value="1200">Under $1.2M</option>
+                <option value="2000">Under $2M</option>
+            </select>
+        </div>
+
+        <div class="listings-grid" id="listings-grid"></div>
+        <div class="empty-listings hidden" id="empty-listings">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <p>No listings match your search. Try adjusting filters.</p>
+        </div>
+    </div>
+
+    <div data-include="footer"></div>
+
+    <script src="layout.js"></script>
+</body>
+</html>

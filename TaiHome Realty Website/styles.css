@@ -81,7 +81,7 @@ body {
     font-size: var(--text-base);
     color: var(--color-text);
     background-color: var(--color-bg);
-    background-image: url(home-2486092_1280.jpg);
+    background-image: url(homes/home-2486092_1280.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -219,6 +219,55 @@ button.nav-tab.active {
 button.nav-tab.active:hover {
     background: var(--gold);
     color: black;
+}
+
+/* ── Multi-page nav links (pages/ + partials/nav.html) ─────────
+   Mirrors button.nav-tab so the split pages look identical. */
+a.nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    white-space: nowrap;
+    height: 75px;
+    width: 155px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    transition: background var(--transition), color var(--transition);
+}
+
+a.nav-link:hover {
+    background: var(--gold);
+    color: black;
+}
+
+a.nav-link.active {
+    color: var(--gold);
+    background: var(--gold-faint);
+}
+
+a.nav-link.active:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* Anchors reusing card / tab styles in split pages */
+a.service-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.selling-tab-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 /* ── Dropdown ───────────────────────────────────────────────── */
@@ -963,7 +1012,7 @@ h2#application-intro {
 /* Body in light mode — gold background, no dark image overlay needed */
 [data-theme="light"] body {
     background-color: rgb(235, 208, 121);
-    background-image: url(home-2486092_1280.jpg);
+    background-image: url(homes/home-2486092_1280.jpg);
     color: #000;
 }
 
@@ -994,6 +1043,10 @@ h2#application-intro {
 [data-theme="light"] button.nav-tab:hover { background: #000; color: rgb(235,208,121); }
 [data-theme="light"] button.nav-tab.active { color: #000; background: rgba(0,0,0,0.1); }
 [data-theme="light"] button.nav-tab.active:hover { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] a.nav-link { color: rgba(0,0,0,0.6); }
+[data-theme="light"] a.nav-link:hover { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] a.nav-link.active { color: #000; background: rgba(0,0,0,0.1); }
+[data-theme="light"] a.nav-link.active:hover { background: #000; color: rgb(235,208,121); }
 
 /* Dropdown */
 [data-theme="light"] .dropdown-list {
@@ -1350,6 +1403,7 @@ button.translate-btn:hover,
   }
 
   button.nav-tab,
+  a.nav-link,
   .dropdown-trigger {
     height: 52px;
     width: auto;

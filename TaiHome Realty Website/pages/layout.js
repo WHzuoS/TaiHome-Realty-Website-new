@@ -1,0 +1,85 @@
+/* TaiHome Realty — multi-page layout loader (pages/*.html)
+ *
+ * Each page declares three slots:
+ *   <div data-include="topbar"></div>
+ *   <div data-include="nav"></div>
+ *   <div data-include="footer"></div>
+ *
+ * This script fetches the shared partials (single source of truth in
+ * ../partials/), highlights the active nav link from <body data-page>,
+ * stamps the footer year, then loads ../index.js AFTER the chrome exists
+ * so its theme toggle / translate / render bindings attach correctly.
+ * Serve over http(s) — fetch() of partials is blocked on file://.
+ */
+(function () {
+    'use strict';
+
+    var PARTIALS_BASE = '../partials/';
+    var APP_SCRIPT = '../index.js';
+
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+            document.body.appendChild(s);
+        });
+    }
+
+    async function injectPartials() {
+        var slots = document.querySelectorAll('[data-include]');
+        for (const slot of slots) {
+            var name = slot.getAttribute('data-include');
+            try {
+                const res = await fetch(PARTIALS_BASE + name + '.html', { cache: 'no-cache' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const html = await res.text();
+                const tpl = document.createElement('template');
+                tpl.innerHTML = html.trim();
+                slot.replaceWith(...tpl.content.childNodes);
+            } catch (err) {
+                console.error('[layout] include failed:', name, err);
+                slot.innerHTML = '<p style="padding:1rem;text-align:center;">Section "' +
+                    name + '" could not be loaded. Serve the site over http(s).</p>';
+            }
+        }
+    }
+
+    function markActiveNav() {
+        var page = document.body.getAttribute('data-page');
+        if (!page) return;
+        document.querySelectorAll('[data-nav]').forEach(function (a) {
+            if (a.getAttribute('data-nav') === page) a.classList.add('active');
+        });
+        // The Selling dropdown trigger stays highlighted on its child pages.
+        if (page === 'evaluation') {
+            document.querySelectorAll('[data-nav="selling"].dropdown-trigger').forEach(function (a) {
+                a.classList.add('active');
+            });
+        }
+    }
+
+    function stampFooterYear() {
+        var y = document.getElementById('footer-year');
+        if (y) y.textContent = new Date().getFullYear();
+    }
+
+    async function boot() {
+        await injectPartials();
+        markActiveNav();
+        stampFooterYear();
+        try {
+            await loadScript(APP_SCRIPT);
+        } catch (err) {
+            console.error('[layout]', err);
+        }
+        window.dispatchEvent(new Event('layout:ready'));
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+})();
