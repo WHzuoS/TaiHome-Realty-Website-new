@@ -472,6 +472,21 @@ const employees = [
         img: 'agent-song-hai.jpg',
         url: 'https://www.realtor.ca/agent/1988228/song-hai-51-foxwarren-dr-toronto-ontario-m2k1l1',
     },
+    {
+        id: 7,
+        name: 'Chandler Ren',
+        title: 'Salesperson',
+        initials: 'CR',
+        color: '#1d4ed8',
+        languages: 'English, Mandarin',
+        bio: 'n/a',
+        phone: '+16477015158',
+        email: 'n/a',
+        deals: 0,
+        years: 0,
+        img: 'Chandler-Ren.jpg',
+        url: 'https://www.realtor.ca/a/h_sn/jb',
+    },
 ];
 
 
