@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | TaiHome Realty Inc.</title>
+    <link rel="icon" href="../Logo2 (TaiHome Realty Inc.).png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="../TaiHome Logo 20251223.webp" fetchpriority="high">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"></noscript>
+    <style id="critical-css">:root {
+    /* Gold palette */
+    --gold:           rgb(235, 208, 121);
+    --gold-bright:    rgb(255, 230, 140);
+    --gold-dim:       rgb(180, 155, 80);
+    --gold-faint:     rgba(235, 208, 121, 0.15);
+    --gold-subtle:    rgba(235, 208, 121, 0.08);
+
+    /* Backgrounds (black to deep charcoal) */
+    --color-bg:             #000000;
+    --color-surface:        #0d0d0b;
+    --color-surface-2:      #141410;
+    --color-surface-offset: #1a1a15;
+    --color-divider:        rgba(235, 208, 121, 0.25);
+    --color-border:         rgba(235, 208, 121, 0.2);
+
+    /* Text */
+    --color-text:           rgb(235, 208, 121);
+    --color-text-muted:     rgba(235, 208, 121, 0.65);
+    --color-text-faint:     rgba(235, 208, 121, 0.35);
+    --color-text-on-gold:   #000000;
+
+    /* Functional */
+    --color-primary:        rgb(235, 208, 121);
+    --color-primary-hover:  rgb(255, 230, 140);
+    --color-success:        #7aad4a;
+    --color-blue:           #5591c7;
+    --color-error:          #d16363;
+
+    /* Shadows */
+    --color-shadow-sm: 0 1px 4px rgba(0,0,0,0.6);
+    --color-shadow-md: 0 4px 18px rgba(0,0,0,0.7);
+    --color-shadow-lg: 0 12px 40px rgba(0,0,0,0.85);
+    --gold-glow:       0 0 18px rgba(235, 208, 121, 0.18);
+
+    /* Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Transition */
+    --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Type scale */
+    --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+    --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+    --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+    --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+    --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+    --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+
+    /* Fonts */
+    --font-display: 'Playfair Display', 'Century Gothic', Georgia, serif;
+    --font-body:    'Century Gothic', 'Trebuchet MS', sans-serif;
+
+    /* Spacing */
+    --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+    --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+    --space-12: 3rem; --space-16: 4rem;
+
+    /* Layout */
+    --content-default: 960px;
+    --content-wide: 1200px;
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+    min-height: 100dvh;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+img, svg { display: block; max-width: 100%; }
+input, select, textarea { font: inherit; color: inherit; }
+a, button, [role="button"] {
+    transition: color var(--transition), background var(--transition),
+    box-shadow var(--transition), border-color var(--transition);
+}
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: var(--radius-sm); }
+h1, h2, h3, h4 { text-wrap: balance; line-height: 1.2; }
+p, li { text-wrap: pretty; }
+ul[role="list"] { list-style: none; }
+::selection { background: rgba(235,208,121,0.3); color: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ── Top Bar ────────────────────────────────────────────────── */
+div#bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: black;
+    padding: 9px 12px;
+    width: 100%;
+    border-bottom: 2px solid var(--gold);
+}
+
+img#companyTrademark {
+    height: 75px;
+    width: 250px;
+    margin: 5px;
+    object-fit: contain;
+    object-position: center;
+}
+
+#bar h1 {
+    font-family: var(--font-display);
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--gold);
+    flex: 1;
+    letter-spacing: 0.02em;
+    min-width: 0;
+}
+
+.theme-toggle {
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    background: none;
+}
+.theme-toggle:hover { color: var(--gold); background: var(--gold-faint); }
+
+/* ── Nav Separator ──────────────────────────────────────────── */
+div.nav-seperate,
+.nav-separate {
+    height: 2px;
+    background-color: var(--gold);
+    width: 100%;
+}
+
+/* ── Navigation Bar ─────────────────────────────────────────── */
+div.navigationBar {
+    display: flex;
+    align-items: center;
+    background: black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 2px 20px rgba(235,208,121,0.08);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 var(--space-4);
+    max-width: var(--content-wide);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Nav Buttons (your spec + enhancements) ──────────────────── */
+button {
+    cursor: pointer;
+    background: none;
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 20px;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+/* Nav buttons specifically get the large size */
+button.nav-tab,
+.dropdown-trigger {
+    height: 75px;
+    width: 155px;
+}
+
+button.nav-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    white-space: nowrap;
+    color: var(--color-text-muted);
+    transition: background var(--transition), color var(--transition);
+}
+
+button.nav-tab:hover {
+    background: var(--gold);
+    color: black;
+}
+
+button.nav-tab.active {
+    color: var(--gold);
+    background: var(--gold-faint);
+}
+
+button.nav-tab.active:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* ── Multi-page nav links (pages/ + partials/nav.html) ─────────
+   Mirrors button.nav-tab so the split pages look identical. */
+a.nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    white-space: nowrap;
+    height: 75px;
+    width: 155px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    transition: background var(--transition), color var(--transition);
+}
+
+a.nav-link:hover {
+    background: var(--gold);
+    color: black;
+}
+
+a.nav-link.active {
+    color: var(--gold);
+    background: var(--gold-faint);
+}
+
+a.nav-link.active:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* Anchors reusing card / tab styles in split pages */
+a.service-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.selling-tab-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* ── Dropdown ───────────────────────────────────────────────── */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.chevron { transition: transform var(--transition); }
+.dropdown.open .chevron { transform: rotate(180deg); }
+
+.dropdown-list {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 5px);
+    min-width: 200px;
+    list-style: none;
+    margin: 5px 0 0;
+    padding: 8px;
+    background: var(--gold);
+    border: 2px solid var(--gold-dim);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6), var(--gold-glow);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px) scaleY(0.95);
+    transform-origin: top;
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 0s 180ms;
+}
+
+.dropdown:hover .dropdown-list,
+.dropdown.open .dropdown-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scaleY(1);
+    pointer-events: auto;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 0s 0s;
+}
+
+.dropdown-list li a {
+    display: block;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background 180ms ease, color 150ms ease;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dropdown-list li a:hover {
+    background: black;
+    color: var(--gold);
+}
+
+/* ── Page System ────────────────────────────────────────────── */
+div.page {
+    display: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+div.page.active { display: block; }
+
+.employee-details { display: none; }
+.employee-details.active { display: block; }
+
+.page-header {
+    text-align: center;
+    padding: var(--space-12) var(--space-8) var(--space-8);
+    border-bottom: 1px solid var(--color-divider);
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: 50px;
+    color: var(--gold);
+    margin-bottom: var(--space-2);
+}
+
+.page-subtitle { color: var(--color-text-muted); font-size: var(--text-base); }
+
+/* ── Glass panel utility (used on content sections) ─────────── */
+.glass {
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(3px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+}
+
+/* ── Buttons (action buttons, not nav) ───────────────────────── */
+.btn {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm); font-weight: 600;
+    font-family: var(--font-body);
+    text-decoration: none; cursor: pointer;
+    white-space: nowrap;
+    border: none;
+    height: auto; width: auto;
+    margin: 0;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: black;
+}
+.btn-primary:hover { background: var(--gold-bright); box-shadow: var(--gold-glow); }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--color-border);
+}
+.btn-secondary:hover { background: var(--gold-faint); }
+
+.btn-ghost {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+.btn-ghost:hover { color: var(--gold); background: var(--gold-faint); border-color: var(--gold); }
+
+/* ── Home Page ──────────────────────────────────────────────── */
+.hero-section {
+    min-height: 60vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: var(--space-16) var(--space-8);
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-divider);
+}
+
+.hero-content { max-width: 640px; text-align: left; }
+
+.hero-eyebrow {
+    font-size: var(--text-sm); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold-dim); margin-bottom: var(--space-3);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+    color: var(--gold);
+}
+.hero-title em { color: var(--gold-bright); font-style: italic; }
+
+.hero-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+    max-width: 55ch;
+}
+
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+[data-theme="light"] {
+    --color-bg:             rgb(235, 208, 121);
+    --color-surface:        rgb(240, 215, 130);
+    --color-surface-2:      rgb(245, 222, 140);
+    --color-surface-offset: rgb(228, 200, 108);
+    --color-divider:        rgba(0, 0, 0, 0.20);
+    --color-border:         rgba(0, 0, 0, 0.18);
+    --color-text:           #000000;
+    --color-text-muted:     rgba(0, 0, 0, 0.65);
+    --color-text-faint:     rgba(0, 0, 0, 0.35);
+    --color-text-on-gold:   #000000;
+    --color-primary:        #000000;
+    --color-primary-hover:  #1a1a10;
+    --gold-faint:           rgba(0, 0, 0, 0.07);
+    --gold-subtle:          rgba(0, 0, 0, 0.04);
+    --gold-glow:            0 0 18px rgba(0,0,0,0.12);
+    --color-shadow-sm: 0 1px 4px rgba(0,0,0,0.15);
+    --color-shadow-md: 0 4px 18px rgba(0,0,0,0.18);
+    --color-shadow-lg: 0 12px 40px rgba(0,0,0,0.22);
+}
+/* Body in light mode — gold background, no dark image overlay needed */
+[data-theme="light"] body {
+    background-color: rgb(235, 208, 121);
+    color: #000;
+}
+
+/* Top bar & nav: gold background, black text */
+[data-theme="light"] div#bar {
+    background: rgb(235, 208, 121);
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+}
+[data-theme="light"] #bar h1 { color: #000; }
+[data-theme="light"] .theme-toggle {
+    color: rgba(0,0,0,0.6);
+    border-color: rgba(0,0,0,0.2);
+}
+[data-theme="light"] .theme-toggle:hover {
+    color: #000;
+    background: rgba(0,0,0,0.08);
+}
+[data-theme="light"] div.nav-seperate,
+[data-theme="light"] .nav-separate {
+    background-color: rgba(0,0,0,0.3);
+}
+[data-theme="light"] div.navigationBar {
+    background: rgb(235, 208, 121);
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+[data-theme="light"] button.nav-tab { color: rgba(0,0,0,0.6); }
+[data-theme="light"] button.nav-tab:hover { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] button.nav-tab.active { color: #000; background: rgba(0,0,0,0.1); }
+[data-theme="light"] button.nav-tab.active:hover { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] a.nav-link { color: rgba(0,0,0,0.6); }
+[data-theme="light"] a.nav-link:hover { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] a.nav-link.active { color: #000; background: rgba(0,0,0,0.1); }
+[data-theme="light"] a.nav-link.active:hover { background: #000; color: rgb(235,208,121); }
+
+/* Dropdown */
+[data-theme="light"] .dropdown-list {
+    background: #000;
+    border-color: rgba(0,0,0,0.3);
+}
+[data-theme="light"] .dropdown-list li a { color: rgb(235,208,121); }
+[data-theme="light"] .dropdown-list li a:hover { background: rgb(235,208,121); color: #000; }
+/* Page header */
+[data-theme="light"] .page-header { background: rgba(235,208,121,0.6); }
+[data-theme="light"] .page-title { color: #000; }
+[data-theme="light"] .hero-section {
+    background: rgba(235,208,121,0.35);
+}
+[data-theme="light"] .home-stats { background: rgba(235,208,121,0.55); }
+[data-theme="light"] .selling-tabs { background: rgba(235,208,121,0.55); }
+[data-theme="light"] .listings-filters { background: rgba(235,208,121,0.55); }
+
+/* Headings and accents in light mode */
+[data-theme="light"] .hero-eyebrow { color: rgba(0,0,0,0.5); }
+[data-theme="light"] .hero-title { color: #000; }
+[data-theme="light"] .hero-title em { color: #3a2e00; }
+/* Buttons in light mode */
+[data-theme="light"] .btn-primary { background: #000; color: rgb(235,208,121); }
+[data-theme="light"] .btn-primary:hover { background: #1a1a10; }
+[data-theme="light"] .btn-ghost { color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0.2); }
+[data-theme="light"] .btn-ghost:hover { color: #000; background: rgba(0,0,0,0.08); border-color: #000; }
+[data-theme="light"] .btn-secondary { color: #000; border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.05); }
+@media (max-width: 480px) {
+  div#bar {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+  img#companyTrademark {
+    width: 120px;
+    height: 44px;
+  }
+  #bar h1 {
+    font-size: 22px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* ── Nav: horizontal scroll, no wrap ── */
+@media (max-width: 768px) {
+  div.navigationBar {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  div.navigationBar::-webkit-scrollbar { display: none; }
+
+  nav {
+    padding: 0 var(--space-2);
+    gap: 0;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  button.nav-tab,
+  a.nav-link,
+  .dropdown-trigger {
+    height: 52px;
+    width: auto;
+    min-width: 90px;
+    font-size: 14px;
+    padding: 0 var(--space-3);
+    white-space: nowrap;
+  }
+}
+
+/* ── Hero section ── */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--space-10) var(--space-4);
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+</style>
+    <link rel="preload" as="style" href="../styles.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../styles.min.css"></noscript>
+</head>
+<body data-page="team" data-asset-base="../">
+
+    <div data-include="topbar"></div>
+
+    <div class="nav-separate"></div>
+
+    <div data-include="nav"></div>
+
+    <div class="page active" id="page-employees">
+        <div class="nav-separate"></div>
+        <div class="page-header">
+            <h1 class="page-title">Our Team</h1>
+            <p class="page-subtitle">Meet the experienced professionals at TaiHome Realty</p>
+        </div>
+        <div class="employees-grid" id="employees-grid"></div>
+    </div>
+
+    <div data-include="footer"></div>
+
+    <script src="layout.min.js" defer></script>
+</body>
+</html>
